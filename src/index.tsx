@@ -9,6 +9,8 @@ import EventPage from './event_page';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
+
+//все страницы сайта
 const router = createBrowserRouter([
   {
     path: '/events',

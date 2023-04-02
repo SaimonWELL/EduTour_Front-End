@@ -8,7 +8,7 @@ interface PageProps {
 interface TagProps {
     tag_name: string;
   }
-  
+  //группа тегов
   function Tag({ tag_name }: TagProps) {
     function handleTag() {
       alert(`Переход к событиям с тегом "${tag_name}"`);
@@ -17,7 +17,7 @@ interface TagProps {
       <span onClick={handleTag} className="tag badge bg-info">{tag_name}</span>
     );
   }
-
+//шаблон страницы
 function EventPage(){
     function handleClick() {
         alert(`Добавление события "${events[`${id}`]}" в расписание`);

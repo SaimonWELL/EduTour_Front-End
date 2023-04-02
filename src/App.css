@@ -7,6 +7,7 @@
   -ms-transition: 0.1s;
 }
 
+/* Шаблоны цветов */
 :root{
   --light-theme-bg-color:white;
   --dark-theme-bg-color:rgb(63, 63, 63);
@@ -16,18 +17,38 @@
   --dark-theme-text-color:white;
 }
 
-body{
-  height: 100vh;
-}
+/* Темы */
 
+/* Фон для темной темы */
 body.lightTheme{
   background-color: #f7f7f7;
 }
 
+input.darkTheme, select.darkTheme{
+  background-color: #797979;
+  color:var(--dark-theme-text-color)
+}
+
+/* Фон для светлой темы */
 body.darkTheme{
   background-color: rgb(40, 40, 40);
 }
 
+/* Для всех элементов для светлой темы*/
+.lightTheme{
+  background-color: var(--light-theme-bg-color);
+  color: var(--light-theme-text-color);
+}
+
+/* Для всех элементов для светлой темы*/
+.darkTheme{
+  background-color: var(--dark-theme-bg-color);
+  color: var(--dark-theme-text-color);
+}
+
+/* Форма регистрации */
+
+/*  Контейнер формы */
  #registrationForm{
   position: relative;
   margin-left: auto;
@@ -44,35 +65,25 @@ body.darkTheme{
   box-shadow: rgba(0, 0, 0, 0.25) 5px 5px 10px;
 }
 
+/*  Кнопка */
 .regitrationButton{
   position: relative;
   left: 15px;
  }
 
-.logo > a{
-  text-decoration: none;
-  color: white;
+ /*  Подпись */
+.registrationLabel{
+  font-size: 24px;
+  padding-left: 15px;
 }
-
-.addButton{
-  max-height: 50px;
-  max-width: 130px;
-}
-
-.logo > a:hover{
-  color:rgb(214, 236, 255);
-}
-
-input.darkTheme, select.darkTheme{
-  background-color: #797979;
-  color:var(--dark-theme-text-color)
-}
-
+ 
+/*  Поле ввода */
 .registrationField{
   width: 400px;
   height: 40px;
   font-size: 18px;
 }
+
 /* 
 .registrationField:focus{
   border-width: 3px;
@@ -80,10 +91,9 @@ input.darkTheme, select.darkTheme{
   outline: none;
 } */
 
-.registrationLabel{
-  font-size: 24px;
-  padding-left: 15px;
-}
+/* Карточка события */
+
+/* Контейнер */
 .event{
   /* overflow: hidden;
   position: relative;
@@ -97,9 +107,19 @@ input.darkTheme, select.darkTheme{
   /* margin: 50px 0 0 50px; */
   /* box-shadow: rgba(0, 0, 0, 0.25) 5px 5px 10px; */
 }
+
+/* Кнопка добавления */
+.addButton{
+  max-height: 50px;
+  max-width: 130px;
+}
+
+/*  Контейнер тегов */
 .tagWrapper{
   min-width: 210px;
 }
+
+/* Тег */
 .tag{
   transition: 0.2s;
   -webkit-transition: 0.2s;
@@ -113,14 +133,27 @@ input.darkTheme, select.darkTheme{
   width: 85px;
   height: 20px;
 }
+
 .tag:hover{
   background: var(--hover-tag-color) !important;
   margin-right: 5px;
 }
+
+/*  Картинка */
 .ePic{  
   object-fit: cover;
   width: 100%;
   min-height:200px;
+}
+
+/*  Даты */
+.date{
+  color: var(---bs-dark-text-emphasis) !important;
+}
+
+/* Заголовок карточки */
+.eTitle{
+  text-decoration: none;
 }
 
 
@@ -138,26 +171,26 @@ input.darkTheme, select.darkTheme{
   top:25%;
 } */
 
-.loginPopup{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 350px;
-  height: 350px;
-  z-index: 1000;
-  position: fixed;
+
+/*  Логотип (Пока кнопка Home) */
+.logo{
+  margin-left: 25px;
+  margin-top: 10px;
+  color: #ffffff;
 }
 
-.date{
-  color: var(---bs-dark-text-emphasis) !important;
+.logo > a{
+  text-decoration: none;
+  color: white;
 }
 
-label{
-  margin-bottom: 25px;
+.logo > a:hover{
+  color:rgb(214, 236, 255);
 }
-.loginField{
-  width: 225px;
-}
+
+/*  Окно авторизации */
+
+/* Затемнение */
 #popupBg{
   display: flex;
   background-color: #00000059;
@@ -169,33 +202,30 @@ label{
   justify-content: center;
 }
 
-.logo{
-  margin-left: 25px;
-  margin-top: 10px;
-  color: #ffffff;
-}
-
+/* Крестик */
 .cross{
   position: absolute;
   right: 15px;
   top:15px;
 }
 
-.eTitle{
-  text-decoration: none;
+/* Контейнер */
+.loginPopup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  z-index: 1000;
+  position: fixed;
 }
 
-.lightTheme{
-  background-color: var(--light-theme-bg-color);
-  color: var(--light-theme-text-color);
+/* Отступ для подписей */
+label{
+  margin-bottom: 25px;
 }
 
-.darkTheme{
-  background-color: var(--dark-theme-bg-color);
-  color: var(--dark-theme-text-color);
-}
-
-.ePagePic{
-  height: 400px;
-  width: 600px;
+/* Ширина полей авторизации */
+.loginField{
+  width: 225px;
 }

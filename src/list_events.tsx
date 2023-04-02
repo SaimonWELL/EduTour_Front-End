@@ -49,6 +49,7 @@ interface TagProps {
   tag_name: string;
 }
 
+//список тегов
 function Tag({ tag_name }: TagProps) {
   function handleTag() {
     alert(`Переход к событиям с тегом "${tag_name}"`);
@@ -65,6 +66,7 @@ interface EventProps {
   img: string;
 }
 
+//шаблон карточки события
 function Event({event_id, event_name, eventTags, img }: EventProps) {
   function handleClick() {
     alert(`Добавление события ${event_name} в расписание`);
@@ -93,6 +95,8 @@ interface EventListProps {
   events_tags: EventsTags;
   events_imgs: EventsImgs;
 }
+
+//список событий
 
 function EventList({ events, events_tags, events_imgs }: EventListProps) {
   const listEvents = Object.keys(events).map(event =>

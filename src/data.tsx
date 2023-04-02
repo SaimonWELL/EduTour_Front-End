@@ -1,3 +1,4 @@
+//иммитация таблицы тегов
 export type Tags = {
     [key: string]: string;
   }
@@ -8,6 +9,7 @@ export type Tags = {
     '3': 'Студенту'
   }
   
+  //иммитация таблицы событий(пока только имена и картинки)
   export type Events = {
     [key: string]: string;
   }
@@ -34,6 +36,7 @@ export type Tags = {
     [key: string]: string[];
   }
   
+//иммитация таблицы События - Теги
 export const events_tags: EventsTags = {
     '1': ['1', '3'],
     '2': ['1', '2'],
