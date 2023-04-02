@@ -1,1 +1,1 @@
-# EduTour
+# Edu Tour
