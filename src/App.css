@@ -1,0 +1,201 @@
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css";
+*{
+  transition: 0.1s;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  -ms-transition: 0.1s;
+}
+
+:root{
+  --light-theme-bg-color:white;
+  --dark-theme-bg-color:rgb(63, 63, 63);
+  --blue-bg-color: #004cff;
+  --hover-tag-color:#0042dd;
+  --light-theme-text-color:black;
+  --dark-theme-text-color:white;
+}
+
+body{
+  height: 100vh;
+}
+
+body.lightTheme{
+  background-color: #f7f7f7;
+}
+
+body.darkTheme{
+  background-color: rgb(40, 40, 40);
+}
+
+ #registrationForm{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  align-content: center;
+  display:flex;
+  justify-content:center;
+  top: 225px;
+  padding: 50px;
+  width: 500px;
+  height: 600px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.25) 5px 5px 10px;
+}
+
+.regitrationButton{
+  position: relative;
+  left: 15px;
+ }
+
+.logo > a{
+  text-decoration: none;
+  color: white;
+}
+
+.addButton{
+  max-height: 50px;
+  max-width: 130px;
+}
+
+.logo > a:hover{
+  color:rgb(214, 236, 255);
+}
+
+input.darkTheme, select.darkTheme{
+  background-color: #797979;
+  color:var(--dark-theme-text-color)
+}
+
+.registrationField{
+  width: 400px;
+  height: 40px;
+  font-size: 18px;
+}
+/* 
+.registrationField:focus{
+  border-width: 3px;
+  border-color:var(--blue-bg-color) ;
+  outline: none;
+} */
+
+.registrationLabel{
+  font-size: 24px;
+  padding-left: 15px;
+}
+.event{
+  /* overflow: hidden;
+  position: relative;
+  display: block;
+  
+  padding: 25px;
+  border-radius: 5px;
+  min-width: 400px; */
+  width: 400px;
+  height: 405px;
+  /* margin: 50px 0 0 50px; */
+  /* box-shadow: rgba(0, 0, 0, 0.25) 5px 5px 10px; */
+}
+.tagWrapper{
+  min-width: 210px;
+}
+.tag{
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  -ms-transition: 0.2s;
+  cursor: pointer;
+  user-select: none;
+  background: var(--blue-bg-color) !important;
+  margin-right: 5px;
+  width: 85px;
+  height: 20px;
+}
+.tag:hover{
+  background: var(--hover-tag-color) !important;
+  margin-right: 5px;
+}
+.ePic{  
+  object-fit: cover;
+  width: 100%;
+  min-height:200px;
+}
+
+
+/* #loginButton{
+  z-index: 101;
+  position: absolute;
+  right: 25px;
+  top:25%;
+} */
+
+/* #themeSwitch{
+  z-index: 101;
+  position: absolute;
+  right: 125px;
+  top:25%;
+} */
+
+.loginPopup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  z-index: 1000;
+  position: fixed;
+}
+
+.date{
+  color: var(---bs-dark-text-emphasis) !important;
+}
+
+label{
+  margin-bottom: 25px;
+}
+.loginField{
+  width: 225px;
+}
+#popupBg{
+  display: flex;
+  background-color: #00000059;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo{
+  margin-left: 25px;
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.cross{
+  position: absolute;
+  right: 15px;
+  top:15px;
+}
+
+.eTitle{
+  text-decoration: none;
+}
+
+.lightTheme{
+  background-color: var(--light-theme-bg-color);
+  color: var(--light-theme-text-color);
+}
+
+.darkTheme{
+  background-color: var(--dark-theme-bg-color);
+  color: var(--dark-theme-text-color);
+}
+
+.ePagePic{
+  height: 400px;
+  width: 600px;
+}
