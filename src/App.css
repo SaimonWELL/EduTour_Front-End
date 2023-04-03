@@ -229,3 +229,12 @@ label{
 .loginField{
   width: 225px;
 }
+
+/* Страница события */
+
+/*  Картинка */
+.ePagePic{  
+  object-fit: cover;
+  width: 600px;
+  min-height:400px;
+}
