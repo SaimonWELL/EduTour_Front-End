@@ -1,5 +1,6 @@
 @import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css";
-*{
+
+* {
   transition: 0.1s;
   -webkit-transition: 0.1s;
   -moz-transition: 0.1s;
@@ -8,40 +9,41 @@
 }
 
 /* Шаблоны цветов */
-:root{
-  --light-theme-bg-color:white;
-  --dark-theme-bg-color:rgb(63, 63, 63);
+:root {
+  --light-theme-bg-color: white;
+  --dark-theme-bg-color: rgb(63, 63, 63);
   --blue-bg-color: #004cff;
-  --hover-tag-color:#0042dd;
-  --light-theme-text-color:black;
-  --dark-theme-text-color:white;
+  --hover-tag-color: #0042dd;
+  --light-theme-text-color: black;
+  --dark-theme-text-color: white;
 }
 
 /* Темы */
 
 /* Фон для темной темы */
-body.lightTheme{
+body.lightTheme {
   background-color: #f7f7f7;
 }
 
-input.darkTheme, select.darkTheme{
+input.darkTheme,
+select.darkTheme {
   background-color: #797979;
-  color:var(--dark-theme-text-color)
+  color: var(--dark-theme-text-color)
 }
 
 /* Фон для светлой темы */
-body.darkTheme{
+body.darkTheme {
   background-color: rgb(40, 40, 40);
 }
 
 /* Для всех элементов для светлой темы*/
-.lightTheme{
+.lightTheme {
   background-color: var(--light-theme-bg-color);
   color: var(--light-theme-text-color);
 }
 
 /* Для всех элементов для светлой темы*/
-.darkTheme{
+.darkTheme {
   background-color: var(--dark-theme-bg-color);
   color: var(--dark-theme-text-color);
 }
@@ -49,14 +51,14 @@ body.darkTheme{
 /* Форма регистрации */
 
 /*  Контейнер формы */
- #registrationForm{
+#registrationForm {
   position: relative;
   margin-left: auto;
   margin-right: auto;
   flex-wrap: wrap;
   align-content: center;
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   top: 225px;
   padding: 50px;
   width: 500px;
@@ -66,19 +68,19 @@ body.darkTheme{
 }
 
 /*  Кнопка */
-.regitrationButton{
+.regitrationButton {
   position: relative;
   left: 15px;
- }
+}
 
- /*  Подпись */
-.registrationLabel{
+/*  Подпись */
+.registrationLabel {
   font-size: 24px;
   padding-left: 15px;
 }
- 
+
 /*  Поле ввода */
-.registrationField{
+.registrationField {
   width: 400px;
   height: 40px;
   font-size: 18px;
@@ -94,7 +96,7 @@ body.darkTheme{
 /* Карточка события */
 
 /* Контейнер */
-.event{
+.event {
   /* overflow: hidden;
   position: relative;
   display: block;
@@ -109,18 +111,18 @@ body.darkTheme{
 }
 
 /* Кнопка добавления */
-.addButton{
+.addButton {
   max-height: 50px;
   max-width: 130px;
 }
 
 /*  Контейнер тегов */
-.tagWrapper{
+.tagWrapper {
   min-width: 210px;
 }
 
 /* Тег */
-.tag{
+.tag {
   transition: 0.2s;
   -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
@@ -134,25 +136,25 @@ body.darkTheme{
   height: 20px;
 }
 
-.tag:hover{
+.tag:hover {
   background: var(--hover-tag-color) !important;
   margin-right: 5px;
 }
 
 /*  Картинка */
-.ePic{  
+.ePic {
   object-fit: cover;
   width: 100%;
-  min-height:200px;
+  min-height: 200px;
 }
 
 /*  Даты */
-.date{
+.date {
   color: var(---bs-dark-text-emphasis) !important;
 }
 
 /* Заголовок карточки */
-.eTitle{
+.eTitle {
   text-decoration: none;
 }
 
@@ -173,25 +175,25 @@ body.darkTheme{
 
 
 /*  Логотип (Пока кнопка Home) */
-.logo{
+.logo {
   margin-left: 25px;
   margin-top: 10px;
   color: #ffffff;
 }
 
-.logo > a{
+.logo>a {
   text-decoration: none;
   color: white;
 }
 
-.logo > a:hover{
-  color:rgb(214, 236, 255);
+.logo>a:hover {
+  color: rgb(214, 236, 255);
 }
 
 /*  Окно авторизации */
 
 /* Затемнение */
-#popupBg{
+#popupBg {
   display: flex;
   background-color: #00000059;
   width: 100vw;
@@ -203,14 +205,14 @@ body.darkTheme{
 }
 
 /* Крестик */
-.cross{
+.cross {
   position: absolute;
   right: 15px;
-  top:15px;
+  top: 15px;
 }
 
 /* Контейнер */
-.loginPopup{
+.loginPopup {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,20 +223,20 @@ body.darkTheme{
 }
 
 /* Отступ для подписей */
-label{
+label {
   margin-bottom: 25px;
 }
 
 /* Ширина полей авторизации */
-.loginField{
+.loginField {
   width: 225px;
 }
 
 /* Страница события */
 
 /*  Картинка */
-.ePagePic{  
+.ePagePic {
   object-fit: cover;
   width: 600px;
-  min-height:400px;
+  min-height: 400px;
 }
