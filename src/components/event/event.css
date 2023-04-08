@@ -1,0 +1,64 @@
+@import '/src/App.css';
+
+/* Контейнер */
+.event {
+    /* overflow: hidden;
+    position: relative;
+    display: block;
+    
+    padding: 25px;
+    border-radius: 5px;
+    min-width: 400px; */
+    width: 400px;
+    height: 405px;
+    /* margin: 50px 0 0 50px; */
+    /* box-shadow: rgba(0, 0, 0, 0.25) 5px 5px 10px; */
+  }
+  
+  /* Кнопка добавления */
+  .addButton {
+    max-height: 50px;
+    max-width: 130px;
+  }
+  
+  /*  Контейнер тегов */
+  .tagWrapper {
+    min-width: 210px;
+  }
+  
+  /* Тег */
+  .tag {
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    -ms-transition: 0.2s;
+    cursor: pointer;
+    user-select: none;
+    background: var(--blue-bg-color) !important;
+    margin-right: 5px;
+    width: 85px;
+    height: 20px;
+  }
+  
+  .tag:hover {
+    background: var(--hover-tag-color) !important;
+    margin-right: 5px;
+  }
+  
+  /*  Картинка */
+  .ePic {
+    object-fit: cover;
+    width: 100%;
+    min-height: 200px;
+  }
+  
+  /*  Даты */
+  .date {
+    color: var(---bs-dark-text-emphasis) !important;
+  }
+  
+  /* Заголовок карточки */
+  .eTitle {
+    text-decoration: none;
+  }

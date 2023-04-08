@@ -1,0 +1,36 @@
+@import '/src/App.css';
+
+#registrationForm {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    top: 225px;
+    padding: 50px;
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 5px 5px 10px;
+  }
+  
+  /*  Кнопка */
+  .regitrationButton {
+    position: relative;
+    left: 15px;
+  }
+  
+  /*  Подпись */
+  .registrationLabel {
+    font-size: 24px;
+    padding-left: 15px;
+  }
+  
+  /*  Поле ввода */
+  .registrationField {
+    width: 400px;
+    height: 40px;
+    font-size: 18px;
+  }

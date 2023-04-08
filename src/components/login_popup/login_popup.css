@@ -1,0 +1,55 @@
+@import "/src/App.css";
+
+.popupBg {
+  top: 0;
+  left: 0;
+  display: flex;
+  background-color: #00000059;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Крестик */
+.cross {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+/* Контейнер */
+.loginPopup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  z-index: 100;
+  position: relative;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+/* Отступ для подписей */
+label {
+  margin-bottom: 25px;
+}
+
+/* Ширина полей авторизации */
+.loginField {
+  width: 225px;
+}
+
+.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.loginPopup.active {
+  transform: scale(1);
+}
