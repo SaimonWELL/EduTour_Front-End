@@ -5,7 +5,10 @@ import App from './App';
 import {BrowserRouter} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
+
+const rootElem = document.getElementById('root');
+if(!rootElem) throw new Error('Do not find the root element');
+const root = ReactDOM.createRoot(rootElem);
 
 //все страницы сайта
 

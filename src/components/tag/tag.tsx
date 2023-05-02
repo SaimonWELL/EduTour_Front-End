@@ -8,6 +8,6 @@ export default function Tag({ tag_name }: TagProps) {
         alert(`Переход к событиям с тегом "${tag_name}"`);
     }
     return (
-        <span onClick={handleTag} className="tag badge bg-info">{tag_name}</span>
+        <div onClick={handleTag} className="rounded-full cursor-pointer select-none place-self-start text-white text-center w-[96px] px-2 h-5 text-sm bg-blue-800">{tag_name}</div>
     );
 }

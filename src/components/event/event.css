@@ -35,10 +35,7 @@
     -ms-transition: 0.2s;
     cursor: pointer;
     user-select: none;
-    background: var(--blue-bg-color) !important;
-    margin-right: 5px;
-    width: 85px;
-    height: 20px;
+    background: var(--blue-bg-color);
   }
   
   .tag:hover {
@@ -61,4 +58,6 @@
   /* Заголовок карточки */
   .eTitle {
     text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
   }

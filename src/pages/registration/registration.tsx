@@ -1,4 +1,4 @@
-import './registration.css'
+import './registration.css';
 
 function Select(): JSX.Element {
     return (
@@ -14,7 +14,7 @@ function Select(): JSX.Element {
     );
 }
 
-export default function Registration(): JSX.Element {
+export function Registration(): JSX.Element {
     function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
         e.preventDefault();
         const form = e.currentTarget;

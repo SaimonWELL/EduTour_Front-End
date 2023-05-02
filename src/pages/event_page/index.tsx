@@ -1,0 +1,1 @@
+export { EventPage } from "./event_page";

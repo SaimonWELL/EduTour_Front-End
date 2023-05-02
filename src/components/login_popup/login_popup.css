@@ -15,13 +15,6 @@
   pointer-events: none;
 }
 
-/* Крестик */
-.cross {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-}
-
 /* Контейнер */
 .loginPopup {
   display: flex;
@@ -35,10 +28,6 @@
   pointer-events: none;
 }
 
-/* Отступ для подписей */
-label {
-  margin-bottom: 25px;
-}
 
 /* Ширина полей авторизации */
 .loginField {
