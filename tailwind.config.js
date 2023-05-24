@@ -6,7 +6,12 @@ module.exports = {
         "./src/**/*.{html,js,jsx,ts,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'manrope':'Manrope, sans-serif',
+                'rubick':'Rubik, sans-serif'
+            }
+        },
     },
     plugins: [],
 }
