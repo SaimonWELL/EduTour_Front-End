@@ -1,6 +1,8 @@
 import './header.css';
 import { Link } from 'react-router-dom';
 import React, { Dispatch, ReactElement, SetStateAction, useState } from 'react';
+import {useSelector, useDispatch} from "react-redux";
+
 
 
 interface headerProps {
@@ -12,6 +14,13 @@ export function Header({ setOpen }: headerProps): ReactElement {
 
     const [theme, setTheme] = useState<{ themeNow: string }>({ themeNow: 'Темная' });
     const [menu, setMenu] = useState<{ openNow: boolean }>({ openNow: false });
+    const { userInfo } = useSelector((state: any)=>state.auth)
+    console.log(userInfo)
+
+    function profile (){
+        
+    }
+
     function switchTheme(): void {
         if (theme.themeNow === 'Темная') {
             document.documentElement.classList.add('dark');
@@ -21,10 +30,6 @@ export function Header({ setOpen }: headerProps): ReactElement {
             document.documentElement.classList.remove('dark');
             setTheme({ themeNow: 'Темная' });
         }
-    }
-
-    function openMenu(): void {
-        setMenu({ openNow: !menu.openNow });
     }
 
     return (
@@ -39,7 +44,27 @@ export function Header({ setOpen }: headerProps): ReactElement {
                     <Link className="nav-link active font-manrope font-bold" aria-current="page" to="/">О проекте</Link>
                 </div>
                 <div className='LOGIN'>
-                    <button type='button' className='text-white bg-[#4683F7] py-2.5 px-5 rounded-lg font-manrope font-semibold ' onClick={() => setOpen(true)}>Войти</button>
+                    { userInfo ? (
+                        <>
+                            <div className='flex gap-2.5'>
+                                <button onClick={} className='font-manrope font-bold text-sm'>
+                                    Илья
+                                </button>
+                                <ul className="absolute top-[100%] min-w-[160px]">
+                                    <li>sd</li>
+                                    <li>asd</li>
+
+                                </ul>
+                                <p>{}</p>
+                                <img src="" alt="" className='w-10 h-10 rounded-full bg-red-700' />
+                            </div>
+                        </>
+                        ) : (
+                        <>
+                            <Link className='text-white bg-[#4683F7] py-2.5 px-5 rounded-lg font-manrope font-semibold ' aria-current='page' to='/login'>Войти</Link>
+                        </>
+                    ) }
+
                 </div>
             </nav>
 
