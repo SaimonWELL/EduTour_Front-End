@@ -3,6 +3,8 @@ import { EventsImgs, EventsTags } from '../../data';
 import { Event } from '../../components/event';
 import { getEvents } from '../../hooks/getEvent';
 // import { event }  from '../../hooks/getEvent'
+import {Card} from "../../components/cardEvent";
+
 interface EventListProps {
     events_imgs: EventsImgs,
     events_tags: EventsTags
@@ -24,6 +26,7 @@ export function EventList({events_imgs, events_tags} : EventListProps) {  //{ ev
         return (
             <div className="grid mx-auto w-fit grid-cols-1 md:grid-cols-2 lg:grid-cols-3 self-center gap-10">
                 {listEvents}
+                <Card></Card>
             </div>
     );
 }
