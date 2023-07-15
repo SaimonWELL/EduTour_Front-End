@@ -1,3 +1,14 @@
 import axios from "axios";
 
-export const base_url="http://89.108.81.58:8080/"
+const base_data_url = "http://109.172.81.237:8888/"
+const base_auth_url = "http://188.243.187.57:8000/api/v1/"
+
+export default axios.create({
+    baseURL: base_data_url,
+    // withCredentials:true
+});
+
+export const axiosAuth = axios.create({
+    baseURL: base_auth_url,
+    // withCredentials: true
+});

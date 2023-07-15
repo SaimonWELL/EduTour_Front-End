@@ -1,7 +1,13 @@
 import './header.css';
-import { Link } from 'react-router-dom';
-import React, { Dispatch, ReactElement, SetStateAction, useState } from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import { Link, useNavigate } from 'react-router-dom';
+import React, { Dispatch, ReactElement, SetStateAction, useContext, useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { AuthState, profile } from '../../types';
+import { authMe } from '../../hooks/authme';
+import { toast } from 'react-toastify';
+import { profileData } from '../../hooks/profileData';
+import AuthContext from '../../context/AuthContext';
+// import { logout } from '../../slices/authSlice';
 
 
 
@@ -11,14 +17,21 @@ interface headerProps {
 
 // Создание верхней панели
 export function Header({ setOpen }: headerProps): ReactElement {
-
+    const {auth} = useContext(AuthContext);
     const [theme, setTheme] = useState<{ themeNow: string }>({ themeNow: 'Темная' });
     const [menu, setMenu] = useState<{ openNow: boolean }>({ openNow: false });
-    const { userInfo } = useSelector((state: any)=>state.auth)
-    console.log(userInfo)
+    const userInfo = useSelector((state: AuthState) => state.auth);
+    // const [username, setUsername] = useState(''); 
+    // console.log(userInfo)
+    const navigate = useNavigate();
+  
+    // else if(typeof data == 'number') toast.error(data.toString())
+    // const profile = profileData();
 
-    function profile (){
-        
+    function logout(): void {
+        localStorage.removeItem('userInfo');
+        localStorage.removeItem('username');
+        navigate(0);
     }
 
     function switchTheme(): void {
@@ -34,36 +47,36 @@ export function Header({ setOpen }: headerProps): ReactElement {
 
     return (
         <header className='w-full h-24'>
-            <nav className='flex flex-row justify-between  px-28 py-6 items-center '>
+            <nav className='flex flex-row justify-between px-28 py-6 items-center '>
                 <div className='LOGO '>
-                    <Link className="" to="/"><img src="/img/Logo.png" alt="Logo"/></Link>
+                    <Link className="" to="/"><img src="/img/Logo.png" alt="Logo" /></Link>
                 </div>
                 <div className='MENU flex flex-row gap-[48px]'>
                     <Link className="nav-link active font-manrope font-bold" aria-current="page" to="/">Главная</Link>
                     <Link className="nav-link active font-manrope font-bold" aria-current="page" to="/events">События</Link>
                     <Link className="nav-link active font-manrope font-bold" aria-current="page" to="/">О проекте</Link>
+
                 </div>
                 <div className='LOGIN'>
-                    { userInfo ? (
+                    {localStorage.getItem('userInfo') ? (
                         <>
                             <div className='flex gap-2.5'>
-                                <button onClick={} className='font-manrope font-bold text-sm'>
-                                    Илья
-                                </button>
+                                <Link to={`/changeuser/${auth?.username }`}>{auth?.username}</Link>
+                                    
                                 <ul className="absolute top-[100%] min-w-[160px]">
                                     <li>sd</li>
-                                    <li>asd</li>
+                                    <li><button onClick={logout}>Выйти</button></li>
 
                                 </ul>
-                                <p>{}</p>
-                                <img src="" alt="" className='w-10 h-10 rounded-full bg-red-700' />
+                                <p>{ }</p>
+                                <img src={auth?.avatar} alt="" className='w-10 h-10 bg-cover rounded-full bg-red-700' />
                             </div>
                         </>
-                        ) : (
+                    ) : (
                         <>
                             <Link className='text-white bg-[#4683F7] py-2.5 px-5 rounded-lg font-manrope font-semibold ' aria-current='page' to='/login'>Войти</Link>
                         </>
-                    ) }
+                    )}
 
                 </div>
             </nav>

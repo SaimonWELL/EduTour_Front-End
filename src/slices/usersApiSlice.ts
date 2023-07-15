@@ -2,8 +2,6 @@ import { apiSlice } from "./apiSlice";
 const USERS_URL = 'auth/sign-in';
 
 
-
-
 export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({
