@@ -1,11 +1,10 @@
 import { isAxiosError } from "axios";
 import { axiosAuth } from "../axios_config";
 import { toast } from "react-toastify";
-import { useState } from "react";
 
 export const authMe = async () => {
   const info = localStorage.getItem("userInfo");
-  if( info ){  
+  if (info) {
     const userInfo = JSON.parse(info as string);
     return axiosAuth
       .get("/auth/me", {
@@ -23,5 +22,5 @@ export const authMe = async () => {
           }
         }
       });
-    }
+  }
 };

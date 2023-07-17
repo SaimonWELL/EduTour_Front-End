@@ -13,7 +13,7 @@ export const changeUserHook = (
     const access_token = JSON.parse(userInfo).access_token;
     return axiosAuth
       .put(
-        `/users/profile/${user_name}`,
+        `/users/${user_name}/profile`,
         {
           avatar,
           first_name,

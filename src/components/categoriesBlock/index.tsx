@@ -1,1 +1,1 @@
-export {Categories} from './categoriesBlock'
+export { Categories } from "./categoriesBlock";

@@ -22,11 +22,11 @@ export default function VerifyEmail() {
         const confirm_result = await confirmEmail(confirm_token);
         if (confirm_result?.confirmed) {
             toast.info(confirm_result.message);
+            // navigate('/login');
         }
         else{
             toast.error(confirm_result?.message);
         }
-        navigate('/login');
     }
     return (
         <div className='shadow w-[800px] mx-auto h-auto rounded-md'>
