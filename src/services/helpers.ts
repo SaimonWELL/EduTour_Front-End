@@ -1,4 +1,6 @@
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import React from "react";
+import { useLocation } from "react-router-dom";
 
 /**
  * Type predicate to narrow an unknown error to `FetchBaseQueryError`
@@ -21,4 +23,11 @@ export function isErrorWithMessage(
     "message" in error &&
     typeof (error as any).message === "string"
   );
+}
+
+
+export function useQuery() {
+  const { search } = useLocation();
+
+  return React.useMemo(() => new URLSearchParams(search), [search]);
 }

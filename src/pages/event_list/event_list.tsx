@@ -7,6 +7,8 @@ import { getCategories } from "../../hooks/getCategories";
 import { Categories } from "../../components/categoriesBlock";
 import { getEventsByCategory } from "../../hooks/getEventsByCategory";
 import { category, event } from "../../types";
+import { useQuery } from "../../services/helpers";
+import { EventsBlock } from "../../components/eventsBlock";
 
 interface EventListProps {
   events_imgs: EventsImgs;
@@ -27,8 +29,12 @@ const filterEvents = async (Events: event[], filter: Set<number>) => {
 
 export function EventList({ events_imgs }: EventListProps) {
   //{ events, events_tags, events_imgs }: EventListProps
-
-  const [filter, setFilter] = useState<Set<number>>(new Set<number>());
+  const query = useQuery();
+  const [filter, setFilter] = useState<Set<number>>(
+    new Set<number>(
+      new Set<number>(query.getAll("category").map((id) => Number(id)))
+    )
+  );
   const Events: event[] = getEvents();
   const categories = getCategories();
   const [filteredEvents, setEvents] = useState<event[]>();
@@ -39,21 +45,7 @@ export function EventList({ events_imgs }: EventListProps) {
       } else setEvents(Events);
     })();
   }, [filter, setFilter, Events]);
-  const listEvents = filteredEvents?.map((event: event) => (
-    <div className="col" key={event.id}>
-      <Card
-        event_id={String(event.id)}
-        event_name={event.name}
-        eventTags={categories?.map((category: category) => {
-          if (category.id == event.category_id) return category.name;
-        })}
-        img={events_imgs[event.id]}
-        description={event.description}
-        start_date={event.date_start}
-        end_date={event.date_end}
-      />
-    </div>
-  ));
+
   return (
     <>
       <div className="w-[1300px] mx-auto">
@@ -72,7 +64,7 @@ export function EventList({ events_imgs }: EventListProps) {
         <Categories filter={filter} setFilter={setFilter} />
       </div>
       <div className="grid mx-auto w-fit grid-cols-1 md:grid-cols-2 lg:grid-cols-3 self-center gap-10">
-        {listEvents}
+        <EventsBlock filteredEvents={filteredEvents} categories={categories} />
       </div>
     </>
   );
