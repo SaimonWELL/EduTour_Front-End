@@ -74,6 +74,13 @@ export function Header({ setOpen }: headerProps): ReactElement {
           <Link
             className="nav-link active font-manrope font-bold"
             aria-current="page"
+            to="/tours"
+          >
+            Туры
+          </Link>
+          <Link
+            className="nav-link active font-manrope font-bold"
+            aria-current="page"
             to="/"
           >
             О проекте

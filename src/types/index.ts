@@ -7,6 +7,18 @@ export type AuthState = {
     auth: Auth
 }
 
+export type address = {
+    country: string,
+    city: string,
+    street: string,
+    house: number,
+    corps: number,
+    building: number,
+    level: number,
+    flat: number,
+    office: number
+}
+
 export type event = {
     id: number,
     name: string,
@@ -15,7 +27,7 @@ export type event = {
     date_start: string,
     date_end: string,
     reg_deadline: string,
-    address: string,
+    address: address,
     category_id: number
 };
 
@@ -30,4 +42,17 @@ export type profile = {
 export type category = {
     id: number,
     name: string
+}
+
+export type tour = {
+    id: number,
+    name: string,
+    description: string,
+    max_users: number,
+    date_start: string,
+    date_end: string,
+    reg_deadline: string,
+    address: address,
+    category_id: number,
+    events:number[]|null
 }

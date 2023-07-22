@@ -1,1 +1,1 @@
-export { EventsBlock } from "./eventsBlock";
+export { CardsBlock} from "./eventsBlock";

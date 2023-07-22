@@ -8,9 +8,9 @@ import { Categories } from "../../components/categoriesBlock";
 import { getEventsByCategory } from "../../hooks/getEventsByCategory";
 import { category, event } from "../../types";
 import { useQuery } from "../../services/helpers";
-import { EventsBlock } from "../../components/eventsBlock";
+import { CardsBlock } from "../../components/eventsBlock";
 
-interface EventListProps {
+interface ListProps {
   events_imgs: EventsImgs;
 }
 
@@ -27,7 +27,7 @@ const filterEvents = async (Events: event[], filter: Set<number>) => {
   // });
 };
 
-export function EventList({ events_imgs }: EventListProps) {
+export function EventList({ events_imgs }: ListProps) {
   //{ events, events_tags, events_imgs }: EventListProps
   const query = useQuery();
   const [filter, setFilter] = useState<Set<number>>(
@@ -64,7 +64,7 @@ export function EventList({ events_imgs }: EventListProps) {
         <Categories filter={filter} setFilter={setFilter} />
       </div>
       <div className="grid mx-auto w-fit grid-cols-1 md:grid-cols-2 lg:grid-cols-3 self-center gap-10">
-        <EventsBlock filteredEvents={filteredEvents} categories={categories} />
+        <CardsBlock filteredEvents={filteredEvents} categories={categories} is_tour={false}/>
       </div>
     </div>
   );

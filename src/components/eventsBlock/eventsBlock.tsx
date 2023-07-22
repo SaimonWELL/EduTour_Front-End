@@ -6,16 +6,18 @@ import { events_imgs } from "../../data";
 interface EventsBlockProps {
   filteredEvents: event[] | undefined;
   categories: category[] | undefined;
+  is_tour: boolean;
 }
 
-export const EventsBlock = ({
+export const CardsBlock = ({
   filteredEvents,
   categories,
+  is_tour
 }: EventsBlockProps) => {
   const listEvents = filteredEvents?.map((event: event) => (
     <div className="col" key={event.id}>
       <Card
-        event_id={String(event.id)}
+        event_id={event.id}
         event_name={event.name}
         eventTags={categories?.map((category: category) => {
           if (category.id == event.category_id) return category.name;

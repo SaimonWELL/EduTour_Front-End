@@ -17,6 +17,7 @@ import { ChangeUser } from "./pages/changeuser";
 import { MainPage } from "./pages/mainpage";
 import { ForgotPassword, SetNewPassword } from "./pages/ForgotPassword";
 import { Footer } from "./components/footer";
+import { TourList } from "./pages/tourList";
 
 //Основной элемент страницы
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/changeuser/:username" element={<ChangeUser />}></Route>
         <Route path="/forget" element={<ForgotPassword />}></Route>
         <Route path="/reset-password/:token" element={<SetNewPassword />}></Route>
+        <Route path="/tours" element={<TourList events_imgs={events_imgs} />}></Route>
       </Routes>
       <Footer/>
     </div>
