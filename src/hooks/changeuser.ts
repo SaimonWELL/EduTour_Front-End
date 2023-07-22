@@ -2,7 +2,7 @@ import { axiosAuth } from "../axios_config";
 import { isAxiosError } from "axios";
 
 export const changeUserHook = (
-  user_name: string,
+  username: string,
   avatar: string,
   first_name: string,
   last_name: string,
@@ -13,7 +13,7 @@ export const changeUserHook = (
     const access_token = JSON.parse(userInfo).access_token;
     return axiosAuth
       .put(
-        `/users/${user_name}/profile`,
+        `/users/${username}/profile`,
         {
           avatar,
           first_name,

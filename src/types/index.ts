@@ -20,11 +20,11 @@ export type event = {
 };
 
 export type profile = {
-    username: 'string',
-    avatar: 'string',
-    first_name: 'string',
-    last_name: 'string',
-    middle_name: 'string'
+    username: string,
+    avatar: string,
+    first_name: string,
+    last_name: string,
+    middle_name: string
 } 
 
 export type category = {

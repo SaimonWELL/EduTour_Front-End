@@ -59,7 +59,7 @@ export const ChangeUser = () => {
                 className="peer h-full w-full rounded-md border border-blue-gray-200  bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 id="firstname"
                 type="text"
-                placeholder={auth?.first_name}
+                placeholder=" "
                 name="firstname"
                 value={firstname}
                 onChange={(e) => setFirstname(e.target.value)}
@@ -76,7 +76,7 @@ export const ChangeUser = () => {
               <input
                 className="peer h-full w-full rounded-md border border-blue-gray-200  bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                 id="lastname"
-                placeholder={auth?.last_name}
+                placeholder=" "
                 type="text"
                 name="lastname"
                 value={lastname}
@@ -95,7 +95,7 @@ export const ChangeUser = () => {
                 type="text"
                 id="middlename"
                 className="peer h-full w-full rounded-md border border-blue-gray-200  bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-blue-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                placeholder={auth?.middle_name}
+                placeholder=" "
                 name="middlename"
                 value={middlename}
                 onChange={(e) => setMiddlename(e.target.value)}
@@ -202,7 +202,7 @@ export const ChangeUser = () => {
             type="submit"
             data-ripple-light="true"
           >
-            Изменить данные
+            Изменить пароль
           </button>
         </form>
       </div>

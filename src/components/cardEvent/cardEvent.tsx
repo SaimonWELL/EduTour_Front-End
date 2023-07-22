@@ -42,13 +42,13 @@ export function Card({
           <Link to={`/event/${event_id}`}>
             <h6 className="font-rubick text-base font-medium">{event_name}</h6>
           </Link>
-          <p className="text-sm font-rubick font-normal">{description}</p>
+          <p className="text-sm h-9 font-rubick font-normal">{description}</p>
           <p className="text-sm font-rubick font-medium mt-4">
             {date_start} - {date_end}
           </p>
           <div className="footer flex flex-row pt-4 gap-9">
             <div className="tags flex flex-row gap-2">{tagList}</div>
-            <div className="btn w-32 h-10 bg-[#0CA8FF] rounded-lg flex items-center justify-center absolute right-5">
+            <div className="btn w-32 h-10 bg-[#4683F7] rounded-lg flex items-center justify-center absolute right-5">
               <p className="text-white text-sm font-rubick font-medium items-center">
                 В расписание
               </p>

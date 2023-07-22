@@ -47,7 +47,7 @@ export function EventList({ events_imgs }: EventListProps) {
   }, [filter, setFilter, Events]);
 
   return (
-    <>
+    <div>
       <div className="w-[1300px] mx-auto">
         <h1 className="font-black font-manrope text-4xl my-5">
           Список событий
@@ -66,6 +66,6 @@ export function EventList({ events_imgs }: EventListProps) {
       <div className="grid mx-auto w-fit grid-cols-1 md:grid-cols-2 lg:grid-cols-3 self-center gap-10">
         <EventsBlock filteredEvents={filteredEvents} categories={categories} />
       </div>
-    </>
+    </div>
   );
 }

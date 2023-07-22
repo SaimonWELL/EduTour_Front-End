@@ -5,6 +5,7 @@ import React, {
   ReactElement,
   SetStateAction,
   useContext,
+  useEffect,
   useState,
 } from "react";
 import { useSelector } from "react-redux";
@@ -48,7 +49,7 @@ export function Header({ setOpen }: headerProps): ReactElement {
   }
 
   return (
-    <header className="w-full h-24">
+    <header className="w-full h-20 fixed top-0 left-0 bg-white">
       <nav className="flex flex-row justify-between px-28 py-6 items-center ">
         <div className="LOGO ">
           <Link className="" to="/">

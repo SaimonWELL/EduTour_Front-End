@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { tags, events_imgs, events_tags } from "../../data";
+import { events_imgs } from "../../data";
 import Tag from "../../components/tag/tag";
 import { getEvent } from "../../hooks/getEvents";
 import { getCategories } from "../../hooks/getCategories";
@@ -25,10 +25,7 @@ export function EventPage() {
       </h1>
       <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
         <div className="col">
-          <img
-            alt={"event " + id}
-            src={events_imgs[`${id}`]}
-          />
+          <img alt={"event " + id} src={events_imgs[`${id}`]} />
         </div>
         <div className="col grid grid-rows-2">
           <div className="row">
