@@ -50,7 +50,7 @@ export function Card({
           </p>
           <div className="footer flex flex-row pt-4 gap-9">
             <div className="tags flex flex-row gap-2">{tagList}</div>
-            <div className="btn w-32 h-10 bg-[4683F7] rounded-lg flex items-center justify-center absolute right-5">
+            <div className="btn w-32 h-10 bg-[#4683F7] rounded-lg flex items-center justify-center absolute right-5">
               <p className="text-white text-sm font-rubick font-medium items-center">
                 В расписание
               </p>
