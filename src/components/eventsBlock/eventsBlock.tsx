@@ -17,9 +17,10 @@ export const CardsBlock = ({
   const listEvents = filteredEvents?.map((event: event) => (
     <div className="col" key={event.id}>
       <Card
-        event_id={event.id}
-        event_name={event.name}
-        eventTags={categories?.map((category: category) => {
+      is_tour={is_tour}
+        id={event.id}
+        name={event.name}
+        tags={categories?.map((category: category) => {
           if (category.id == event.category_id) return category.name;
         })}
         img={events_imgs[event.id]}

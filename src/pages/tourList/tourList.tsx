@@ -70,7 +70,7 @@ export function TourList({ events_imgs }: ListProps) {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <Categories filter={filter} setFilter={setFilter} />
+          <Categories filter={filter} setFilter={setFilter} is_tour={true}/>
         </div>
         <div className="grid mx-auto w-fit grid-cols-1 md:grid-cols-2 lg:grid-cols-3 self-center gap-10">
           <CardsBlock filteredEvents={filteredTours} categories={categories} is_tour={true}/>

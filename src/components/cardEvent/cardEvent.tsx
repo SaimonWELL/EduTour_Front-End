@@ -1,28 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-interface EventProps {
-  event_id: number;
-  event_name: string;
-  eventTags: (string | undefined)[] | undefined;
+interface CardProps {
+  id: number;
+  name: string;
+  tags: (string | undefined)[] | undefined;
   img: string;
   description: string;
   start_date: string;
   end_date: string;
+  is_tour:boolean;
 }
 
 export function Card({
-  event_id,
-  event_name,
-  eventTags,
+  is_tour,
+  id,
+  name,
+  tags,
   img,
   description,
   start_date,
   end_date,
-}: EventProps) {
+}: CardProps) {
   const date_start = new Date(start_date).toLocaleDateString();
   const date_end = new Date(end_date).toLocaleDateString();
-  const tagList = eventTags?.map((category) => {
+  const tagList = tags?.map((category) => {
     if (category)
       return (
         <div className="w-fit h-8 p-2 border-2 border-[#F6F6F6] rounded-full flex flex-row items-center justify-center gap-2">
@@ -39,8 +41,8 @@ export function Card({
           <div className="avatar w-12 h-12 mb-2 rounded-full items-center flex justify-center ">
             <img src="/img/logoBonch.png" alt="" />
           </div>
-          <Link to={`/event/${event_id}`}>
-            <h6 className="font-rubick text-base font-medium">{event_name}</h6>
+          <Link to={is_tour ? `/tour/${id}` :`/event/${id}`}>
+            <h6 className="font-rubick text-base font-medium">{name}</h6>
           </Link>
           <p className="text-sm h-9 font-rubick font-normal">{description}</p>
           <p className="text-sm font-rubick font-medium mt-4">
