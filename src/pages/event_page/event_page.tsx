@@ -71,7 +71,7 @@ export function EventPage() {
         </div>
       </div>
       <div className="font-bold text-sm">
-        <Link to={`https://yandex.ru/maps/?text=${address}`}>{address}</Link>
+        <Link to={`https://yandex.ru/maps/?text=${address}`} target="_blank" rel="noopener noreferrer">{address}</Link>
         <p>{`Кабинет ${event?.address.office || event?.address.flat}`}</p>
       </div>
     </div>
