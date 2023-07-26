@@ -4,6 +4,7 @@ import Tag from "../../components/tag/tag";
 import { getEvent } from "../../hooks/getEvents";
 import { getCategories } from "../../hooks/getCategories";
 import { category } from "../../types";
+import { Link } from "react-router-dom";
 //шаблон страницы
 export function EventPage() {
   function handleClick() {
@@ -14,8 +15,14 @@ export function EventPage() {
   const id = params.id;
   if (!id) return null;
   const event = getEvent(id);
-  const start_date = new Date(event?.date_start || '');
-  const end_date = new Date(event?.date_end || '');
+  const address = `${event?.address.street.replace(
+    event?.address.street[0],
+    event?.address.street[0].toUpperCase()
+  )}, ${event?.address.house}${
+    event?.address.corps ? "к" + event?.address.corps : ""
+  }`;
+  const start_date = new Date(event?.date_start || "");
+  const end_date = new Date(event?.date_end || "");
   const tagList = categories?.map((category: category) => {
     if (category.id == event?.category_id)
       return <Tag category={category} key={category.id} />;
@@ -29,7 +36,11 @@ export function EventPage() {
       </h1>
       <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
         <div className="col">
-          <img alt={"event " + id} className="rounded" src={events_imgs[`${id}`]} />
+          <img
+            alt={"event " + id}
+            className="rounded"
+            src={events_imgs[`${id}`]}
+          />
         </div>
         <div className="col grid grid-rows-2">
           <div className="row">
@@ -37,16 +48,16 @@ export function EventPage() {
           </div>
           <div className="row grid grid-cols-2">
             <div className="bg-[#4683F7] w-72 h-36 rounded-lg grid items-center justify-center rounded">
-             <div className="text-white grid grid-cols-2">
-               <div className="col">
-                <p className="text-md">Начало</p>
-                <p className="text-3xl font-bold">{`${start_date.getHours()}:${start_date.getMinutes()}`}</p>
-               </div>
-               <div className="col">
-                <p className="text-md">Конец</p>
-                <p className="text-3xl font-bold">{`${end_date.getHours()}:${end_date.getMinutes()}`}</p>
-               </div>
-             </div>
+              <div className="text-white grid grid-cols-2">
+                <div className="col">
+                  <p className="text-md">Начало</p>
+                  <p className="text-3xl font-bold">{`${start_date.getHours()}:${start_date.getMinutes()}`}</p>
+                </div>
+                <div className="col">
+                  <p className="text-md">Конец</p>
+                  <p className="text-3xl font-bold">{`${end_date.getHours()}:${end_date.getMinutes()}`}</p>
+                </div>
+              </div>
               <div className="bg-white w-64 h-10 items-center flex text-center justify-center rounded">
                 <p className="btn text-blue text-sm font-rubick font-medium">
                   Добавить в расписание
@@ -54,13 +65,13 @@ export function EventPage() {
               </div>
             </div>
           </div>
-            <div className="grid sm:grid-cols-5 grid-cols-3 mb-5 grid-flow-col-dense">
-              {tagList}
-            </div>
+          <div className="grid sm:grid-cols-5 grid-cols-3 mb-5 grid-flow-col-dense">
+            {tagList}
+          </div>
         </div>
       </div>
       <div className="font-bold text-sm">
-        <p>{`${event?.address.street.replace(event?.address.street[0], event?.address.street[0].toUpperCase())}, ${event?.address.house}${event?.address.corps ? 'к'+event?.address.corps : ''}`}</p>
+        <Link to={`https://yandex.ru/maps/?text=${address}`}>{address}</Link>
         <p>{`Кабинет ${event?.address.office || event?.address.flat}`}</p>
       </div>
     </div>
