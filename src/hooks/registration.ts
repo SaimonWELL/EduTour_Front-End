@@ -6,7 +6,7 @@ export const registration = async (
   email: string,
   password: string
 ) => {
-  return axiosAuth.post("/auth/sign-up", {
+  return await axiosAuth.post("/auth/sign-up", {
       email,
       password,
       username,
