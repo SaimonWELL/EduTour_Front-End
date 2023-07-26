@@ -28,18 +28,30 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/events" element={<EventList events_imgs={events_imgs} />}/>
+        <Route
+          path="/events"
+          element={<EventList events_imgs={events_imgs} />}
+        />
         {/*events={events} events_tags={events_tags} */}
         <Route path="/registration" element={<Registration />} />
         <Route path="/event/:id" element={<EventPage />} />
         <Route path="/login" element={<LoginScreen />}></Route>
-        <Route path="/verifyemail/:confirm_email" element={<VerifyEmail />}></Route>
+        <Route
+          path="/verifyemail/:confirm_email"
+          element={<VerifyEmail />}
+        ></Route>
         <Route path="/changeuser/:username" element={<ChangeUser />}></Route>
         <Route path="/forget" element={<ForgotPassword />}></Route>
-        <Route path="/reset-password/:token" element={<SetNewPassword />}></Route>
-        <Route path="/tours" element={<TourList events_imgs={events_imgs} />}></Route>
+        <Route
+          path="/reset-password/:token"
+          element={<SetNewPassword />}
+        ></Route>
+        <Route
+          path="/tours"
+          element={<TourList events_imgs={events_imgs} />}
+        ></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -9,7 +9,7 @@ interface CardProps {
   description: string;
   start_date: string;
   end_date: string;
-  is_tour:boolean;
+  is_tour: boolean;
 }
 
 export function Card({
@@ -41,7 +41,7 @@ export function Card({
           <div className="avatar w-12 h-12 mb-2 rounded-full items-center flex justify-center ">
             <img src="/img/logoBonch.png" alt="" />
           </div>
-          <Link to={is_tour ? `/tour/${id}` :`/event/${id}`}>
+          <Link to={is_tour ? `/tour/${id}` : `/event/${id}`}>
             <h6 className="font-rubick text-base font-medium">{name}</h6>
           </Link>
           <p className="text-sm h-9 font-rubick font-normal">{description}</p>

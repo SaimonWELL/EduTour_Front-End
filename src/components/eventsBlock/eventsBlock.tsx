@@ -12,12 +12,12 @@ interface EventsBlockProps {
 export const CardsBlock = ({
   filteredEvents,
   categories,
-  is_tour
+  is_tour,
 }: EventsBlockProps) => {
   const listEvents = filteredEvents?.map((event: event) => (
     <div className="col" key={event.id}>
       <Card
-      is_tour={is_tour}
+        is_tour={is_tour}
         id={event.id}
         name={event.name}
         tags={categories?.map((category: category) => {

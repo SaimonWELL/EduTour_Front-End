@@ -61,10 +61,14 @@ export function EventList({ events_imgs }: ListProps) {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <Categories filter={filter} setFilter={setFilter} is_tour={false}/>
+        <Categories filter={filter} setFilter={setFilter} is_tour={false} />
       </div>
       <div className="grid mx-auto w-fit grid-cols-1 md:grid-cols-2 lg:grid-cols-3 self-center gap-10">
-        <CardsBlock filteredEvents={filteredEvents} categories={categories} is_tour={false}/>
+        <CardsBlock
+          filteredEvents={filteredEvents}
+          categories={categories}
+          is_tour={false}
+        />
       </div>
     </div>
   );

@@ -5,15 +5,16 @@ import { useNavigate } from "react-router-dom";
 interface CategoriesProps {
   filter: Set<number>;
   setFilter: Dispatch<SetStateAction<Set<number>>>;
-  is_tour:boolean;
+  is_tour: boolean;
 }
-// 
-export function Categories({ filter, setFilter, is_tour}: CategoriesProps) {
+//
+export function Categories({ filter, setFilter, is_tour }: CategoriesProps) {
   const navigate = useNavigate();
   const Categories = getCategories();
-  const link = is_tour ? '/tours' : '/events'
+  const link = is_tour ? "/tours" : "/events";
   if (!Categories) return null;
-  const categoryClasses = "w-fit p-4 h-12 border-2 border-[#F6F6F6] rounded-full flex flex-row items-center justify-center gap-2";
+  const categoryClasses =
+    "w-fit p-4 h-12 border-2 border-[#F6F6F6] rounded-full flex flex-row items-center justify-center gap-2";
   const tags = Categories.map((category) => (
     <button
       id={category.id.toString()}
@@ -24,9 +25,17 @@ export function Categories({ filter, setFilter, is_tour}: CategoriesProps) {
         else newFilter.add(category.id);
         console.log(newFilter);
         setFilter(newFilter);
-        navigate(`${link}?${Array.from(newFilter).map(category=>`category=${category}`).join('&')}`);
+        navigate(
+          `${link}?${Array.from(newFilter)
+            .map((category) => `category=${category}`)
+            .join("&")}`
+        );
       }}
-      className={filter.has(category.id) ? categoryClasses + ' bg-slate-200' : categoryClasses}
+      className={
+        filter.has(category.id)
+          ? categoryClasses + " bg-slate-200"
+          : categoryClasses
+      }
     >
       <img src="/img/bambuk.png" className="w-[20px] h-[20px]" alt="" />
       <p className="font-rubick text-md font-normal">{category.name}</p>
@@ -38,7 +47,7 @@ export function Categories({ filter, setFilter, is_tour}: CategoriesProps) {
       {tags}
       <button
         onClick={() => {
-          setFilter(new Set<number>);
+          setFilter(new Set<number>());
           navigate(link);
         }}
         className="w-fit p-4 h-12 border-2 border-[#F6F6F6] rounded-full flex flex-row items-center justify-center gap-2"
