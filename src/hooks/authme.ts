@@ -6,7 +6,7 @@ export const authMe = async () => {
   const info = localStorage.getItem("userInfo");
   if (info) {
     const userInfo = JSON.parse(info as string);
-    return axiosAuth
+    return await axiosAuth
       .get("/auth/me", {
         headers: { Authorization: `Bearer ${userInfo.access_token}` },
       })

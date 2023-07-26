@@ -2,7 +2,7 @@ import { isAxiosError } from "axios";
 import { axiosAuth } from "../axios_config";
 
 const Authorize = async (login: string, password: string) => {
-  return axiosAuth
+  return await axiosAuth
     .post("/auth/sign-in", {
       login,
       password,

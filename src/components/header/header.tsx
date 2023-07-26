@@ -1,6 +1,7 @@
 import "./header.css";
 import { Link, useNavigate } from "react-router-dom";
 import React, {
+  BaseSyntheticEvent,
   Dispatch,
   ReactElement,
   SetStateAction,
@@ -23,7 +24,7 @@ export function Header({ setOpen }: headerProps): ReactElement {
   const [theme, setTheme] = useState<{ themeNow: string }>({
     themeNow: "Темная",
   });
-  const [menu, setMenu] = useState<{ openNow: boolean }>({ openNow: false });
+  const [menu, setMenu] = useState<boolean>(false);
   const userInfo = useSelector((state: AuthState) => state.auth);
   // const [username, setUsername] = useState('');
   // console.log(userInfo)
@@ -49,7 +50,7 @@ export function Header({ setOpen }: headerProps): ReactElement {
   }
 
   return (
-    <header className="w-full h-20 fixed top-0 left-0 bg-white">
+    <header className="w-full z-50 h-20 fixed top-0 left-0 bg-white" onMouseLeave={()=>{setMenu(false)}}>
       <nav className="flex flex-row justify-between px-28 py-6 items-center ">
         <div className="LOGO ">
           <Link className="" to="/">
@@ -88,14 +89,12 @@ export function Header({ setOpen }: headerProps): ReactElement {
         </div>
         <div className="LOGIN">
           {localStorage.getItem("userInfo") ? (
-            <>
               <div className="flex gap-2.5">
-                <Link to={`/changeuser/${auth?.username}`}>
+                <button onClick={()=>{setMenu(true)}}>
                   {auth?.username}
-                </Link>
-
-                <ul className="absolute top-[100%] min-w-[160px]">
-                  <li>sd</li>
+                </button>
+                <ul className={menu ? "absolute top-[75px] min-w-[160px]" : "absolute top-[-100%] min-w-[160px]"}>
+                <Link to={`/changeuser/${auth?.username}`}>Изменить профиль</Link>
                   <li>
                     <button onClick={logout}>Выйти</button>
                   </li>
@@ -107,7 +106,6 @@ export function Header({ setOpen }: headerProps): ReactElement {
                   className="w-10 h-10 bg-cover rounded-full bg-red-700"
                 />
               </div>
-            </>
           ) : (
             <>
               <Link

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <footer className="w-full font-manrope text-white bg-[#3950E6] absolute top-full">
-      <div className="grid grid-cols-3 justify-items-center pt-10 p-5 pb-10">
+    <footer className="w-full font-manrope text-white bg-[#3950E6] mx-auto my-0 pt-10 px-5 pb-14">
+      <div className="grid grid-cols-3 justify-items-center">
         <div className="col">
           <p className="text-2xl font-[450] mb-10">EduTourism</p>
           <div className="text-sm">© 2023 СПб. Все права защищены</div>
