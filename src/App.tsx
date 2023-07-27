@@ -18,6 +18,7 @@ import { MainPage } from "./pages/mainpage";
 import { ForgotPassword, SetNewPassword } from "./pages/ForgotPassword";
 import { Footer } from "./components/footer";
 import { TourList } from "./pages/tourList";
+import ScrollToTop from "./components/scrollToTop";
 
 //Основной элемент страницы
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <div className="min-h-screen pb-3 bg-white space-y-24 dark:bg-gray-700 dark:text-white">
         <Header setOpen={setOpen} />
         <ToastContainer />
+        <ScrollToTop>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route
@@ -52,6 +54,7 @@ function App() {
             element={<TourList events_imgs={events_imgs} />}
           ></Route>
         </Routes>
+        </ScrollToTop>
       </div>
       <Footer />
     </>

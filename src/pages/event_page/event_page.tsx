@@ -15,10 +15,9 @@ export function EventPage() {
   const id = params.id;
   if (!id) return null;
   const event = getEvent(id);
-  const address = `${event?.address.street.replace(
-    event?.address.street[0],
-    event?.address.street[0].toUpperCase()
-  )}, ${event?.address.house}${
+  const address = `${event?.address.country}, ${event?.address.city}, ${
+    event?.address.street
+  }, ${event?.address.house}${
     event?.address.corps ? "к" + event?.address.corps : ""
   }`;
   const start_date = new Date(event?.date_start || "");
@@ -29,7 +28,7 @@ export function EventPage() {
   });
   return (
     <div className="mx-auto position-relative w-[85vw]">
-      <p className="text-sm text-gray-400">{`События – ${event?.name}`}</p>
+      <p className="text-sm text-gray-400 inline"><Link to="/events">События</Link> – {event?.name}</p>
       <h1 className="text-4xl">Мероприятие</h1>
       <h1 className="text-5xl font-[630] dark:text-white mb-5">
         {event?.name}
@@ -47,14 +46,16 @@ export function EventPage() {
             <p className="text-xl mb-5">{event?.description}</p>
           </div>
           <div className="row grid grid-cols-2">
-            <div className="bg-[#4683F7] w-72 h-36 rounded-lg grid items-center justify-center rounded">
+            <div className="bg-[#4683F7] w-72 h-40 rounded-lg grid p-2 items-center justify-center rounded">
               <div className="text-white grid grid-cols-2">
                 <div className="col">
                   <p className="text-md">Начало</p>
+                  <p className="text-md font-bold">{start_date.toLocaleDateString()}</p>
                   <p className="text-3xl font-bold">{`${start_date.getHours()}:${start_date.getMinutes()}`}</p>
                 </div>
                 <div className="col">
                   <p className="text-md">Конец</p>
+                  <p className="text-md font-bold">{end_date.toLocaleDateString()}</p>
                   <p className="text-3xl font-bold">{`${end_date.getHours()}:${end_date.getMinutes()}`}</p>
                 </div>
               </div>
@@ -71,7 +72,13 @@ export function EventPage() {
         </div>
       </div>
       <div className="font-bold text-sm">
-        <Link to={`https://yandex.ru/maps/?text=${address}`} target="_blank" rel="noopener noreferrer">{address}</Link>
+        <Link
+          to={`https://yandex.ru/maps/?text=${address}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {address}
+        </Link>
         <p>{`Кабинет ${event?.address.office || event?.address.flat}`}</p>
       </div>
     </div>
