@@ -7,7 +7,7 @@ import { Header } from "./components/header";
 import { Route, Routes } from "react-router-dom";
 import Registration from "./pages/registration/index";
 import { EventPage } from "./pages/event_page";
-import { Login } from "./components/login_popup";
+
 import LoginScreen from "./pages/login/Login";
 
 import { ToastContainer } from "react-toastify";
