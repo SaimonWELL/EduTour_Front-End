@@ -1,5 +1,5 @@
 import "./header.css";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink,Link, useNavigate } from "react-router-dom";
 import React, {
   BaseSyntheticEvent,
   Dispatch,
@@ -26,7 +26,8 @@ export function Header({ setOpen }: headerProps): ReactElement {
   });
   const [menu, setMenu] = useState<boolean>(false);
   const userInfo = useSelector((state: AuthState) => state.auth);
-  const [loginMenu,setLoginMenu] = useState(false)
+  const [loginMenu,setLoginMenu] = useState<boolean>(false)
+  const [isActive,setIsActive] = useState<boolean>(false)
   // const [username, setUsername] = useState('');
   // console.log(userInfo)
   const navigate = useNavigate();
@@ -55,6 +56,9 @@ export function Header({ setOpen }: headerProps): ReactElement {
     e.preventDefault();
     setLoginMenu(false);
   }
+  // const handClickLink = () =>{
+  //
+  // }
 
 
 
@@ -69,41 +73,41 @@ export function Header({ setOpen }: headerProps): ReactElement {
   }, []);
   return (
     <header className="w-full z-50 h-20 fixed top-0 left-0 bg-white" onMouseLeave={()=>{setMenu(false)}}>
-      <nav className="flex flex-row justify-between px-28 py-6 items-baseline ">
-        <div className="LOGO ">
+      <nav className="flex flex-row justify-between px-28 py-6  ">
+        <div className="LOGO inline-flex items-center">
           <Link className="" to="/">
-            <img src="/img/Logo.png" alt="Logo" />
+            <img className='mt-1' src="/img/Logo.png" alt="Logo" />
           </Link>
         </div>
         <div className="MENU flex flex-row gap-[48px]">
-          <Link
-            className="nav-link active font-manrope font-bold"
+          <NavLink
+            className="nav-link py-2  font-manrope font-bold"
             aria-current="page"
             to="/"
           >
             Главная
-          </Link>
-          <Link
-            className="nav-link active font-manrope font-bold"
+          </NavLink>
+          <NavLink
+            className="nav-link py-2  font-manrope font-bold"
             aria-current="page"
             to="/events"
           >
             События
-          </Link>
-          <Link
-            className="nav-link active font-manrope font-bold"
+          </NavLink>
+          <NavLink
+            className="nav-link py-2  font-manrope font-bold"
             aria-current="page"
             to="/tours"
           >
             Туры
-          </Link>
-          <Link
-            className="nav-link active font-manrope font-bold"
+          </NavLink>
+          <NavLink
+            className="nav-link py-2  font-manrope font-bold"
             aria-current="page"
-            to="/"
+            to="/about"
           >
             О проекте
-          </Link>
+          </NavLink>
         </div>
         <div className="LOGIN w-40">
           {localStorage.getItem("userInfo") ? (
@@ -123,7 +127,7 @@ export function Header({ setOpen }: headerProps): ReactElement {
                               stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                       </svg>
                   </button>
-                <ul id="dropdownMenu" className={`transition-[opacity,margin] duration  ${loginMenu ? '': 'hidden'} min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700`}>
+                <ul id="dropdownMenu" className={`absolute transition-[opacity,margin] duration  ${loginMenu ? '': 'hidden'} min-w-[15rem] bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-gray-800 dark:border dark:border-gray-700`}>
 
                   <li><Link className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white hover:rounded-lg" to={`/changeuser/${auth?.username}`}>Изменить профиль</Link></li>
                   <li><button className="block px-4 py-2 text-gray-800 hover:bg-blue-500 hover:text-white hover:rounded-lg w-full text-left"  onClick={logout}>Выйти</button></li>

@@ -6,6 +6,8 @@
 @tailwind utilities;
 
 /* Шаблоны цветов */
+
+
 :root {
   --light-theme-bg-color: white;
   --dark-theme-bg-color: rgb(63, 63, 63);
@@ -13,4 +15,8 @@
   --hover-tag-color: #0042dd;
   --light-theme-text-color: black;
   --dark-theme-text-color: white;
+}
+
+.active{
+  @apply py-2  font-manrope font-bold  border-b-[3px] border-blue-500  text-blue-600;
 }
