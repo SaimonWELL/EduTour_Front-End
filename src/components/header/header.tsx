@@ -72,37 +72,36 @@ export function Header({ setOpen }: headerProps): ReactElement {
     };
   }, []);
   return (
-    <header className="w-full z-50 h-20 fixed top-0 left-0 bg-white" onMouseLeave={()=>{setMenu(false)}}>
+    <header className="w-full  z-50 h-20 fixed top-0 left-0 bg-white" onMouseLeave={()=>{setMenu(false)}}>
       <nav className="flex flex-row justify-between px-28 py-6  ">
-        <div className="LOGO inline-flex items-center">
+        <div className="logo ">
           <Link className="" to="/">
             <img className='mt-1' src="/img/Logo.png" alt="Logo" />
           </Link>
         </div>
-        <div className="MENU flex flex-row gap-[48px]">
+        <div className="menu flex flex-row gap-[48px]">
           <NavLink
-            className="nav-link py-2  font-manrope font-bold"
+            className="customNav  nav-link py-2 relative font-manrope font-bold transition duration-150 ease-out"
             aria-current="page"
             to="/"
           >
             Главная
           </NavLink>
           <NavLink
-            className="nav-link py-2  font-manrope font-bold"
+            className="customNav nav-link py-2 relative font-manrope font-bold"
             aria-current="page"
             to="/events"
           >
             События
           </NavLink>
           <NavLink
-            className="nav-link py-2  font-manrope font-bold"
+            className="customNav nav-link py-2 relative font-manrope font-bold"
             aria-current="page"
-            to="/tours"
-          >
+            to="/tours">
             Туры
           </NavLink>
           <NavLink
-            className="nav-link py-2  font-manrope font-bold"
+            className="customNav  nav-link py-2  relative font-manrope font-bold"
             aria-current="page"
             to="/about"
           >

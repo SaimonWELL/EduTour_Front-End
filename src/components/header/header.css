@@ -1,18 +1,2 @@
 @import '/src/App.css';
-
-
-.logo {
-    margin-left: 25px;
-    margin-top: 10px;
-    color: #ffffff;
-  }
-  
-  .logo > a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .logo > a:hover {
-    color: rgb(214, 236, 255);
-  }
   

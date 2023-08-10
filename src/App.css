@@ -17,6 +17,29 @@
   --dark-theme-text-color: white;
 }
 
+
+
+/* start-Animation for header nav-links */
+.customNav:not(.active):after{
+  content: '';
+  position: absolute;
+  background-color: #3b82f6;
+  height: 2.5px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+.customNav:not(.active):hover:after{
+  width: 100%;
+}
+.customNav:hover{
+  color: #2576ee;
+}
+
+/* finish-Animation for header */
+
 .active{
-  @apply py-2  font-manrope font-bold  border-b-[3px] border-blue-500  text-blue-600;
+  @apply py-2 cursor-default font-manrope font-bold  border-b-[3px] border-blue-500  text-blue-600;
 }
