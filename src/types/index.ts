@@ -1,4 +1,3 @@
-import { ReactElement, ReactPortal } from "react";
 
 export type Auth = {
     access_token: string,
@@ -22,11 +21,12 @@ export type event = {
 };
 
 export type profile = {
-    username: 'string',
-    avatar: 'string',
-    first_name: 'string',
-    last_name: 'string',
-    middle_name: 'string'
+    username: string,
+    avatar: string,
+    first_name: string,
+    last_name: string,
+    middle_name: string,
+    role: string
 } 
 
 export type category = {

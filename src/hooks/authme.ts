@@ -1,16 +1,12 @@
 import { isAxiosError } from "axios";
 import { axiosAuth } from "../axios_config";
 import { toast } from "react-toastify";
-import { useState } from "react";
 
 export const authMe = async () => {
   const info = localStorage.getItem("userInfo");
   if( info ){  
-    const userInfo = JSON.parse(info as string);
-    return axiosAuth
-      .get("/auth/me", {
-        headers: { Authorization: `Bearer ${userInfo.access_token}` },
-      })
+    return await axiosAuth
+      .get("/auth/me")
       .then((response) => {
         return response.data.username; //401
       })

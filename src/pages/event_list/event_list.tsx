@@ -1,14 +1,14 @@
 import { EventsImgs, Tags } from '../../data';
 
-import { Event } from '../../components/event';
 import { getEvents } from '../../hooks/getEvents';
 // import { event }  from '../types'
 import { Card } from "../../components/cardEvent";
 
-import { isAxiosError } from 'axios';
-import { toast } from 'react-toastify';
 import { getCategories } from '../../hooks/getCategories';
 import { Categories } from '../../components/categoriesBlock';
+import { getUserEvents } from '../../hooks/getUserEvents';
+import AuthContext from '../../context/AuthContext';
+import { useContext } from 'react';
 
 interface EventListProps {
     events_imgs: EventsImgs,
@@ -20,15 +20,18 @@ interface EventListProps {
 
 export function EventList({ events_imgs, tags }: EventListProps) {  //{ events, events_tags, events_imgs }: EventListProps
 
+
     const Events = getEvents();
+    const eventsInfo = getUserEvents();
     const categories = getCategories();
     if (!Events || !categories) return null
     else {
-        console.log(Events)
-        const listEvents = Events.map((event) =>
-            <div className="col" key={event.id}>
-                <Card event_id={String(event.id)} event_name={event.name} eventTags={categories.map(category => { if (category.id == event.category_id) return category.name })} img={events_imgs[event.id]} description={event.description} start_date={event.date_start} end_date={event.date_end} />
-            </div>);
+        const listEvents = Events.map((event) => {
+
+            return < div className="col" key={event.id} >
+                <Card signed={eventsInfo?.includes(event.id)} id={String(event.id)} name={event.name} tags={categories.map(category => { if (category.id == event.category_id) return category.name })} img={events_imgs[event.id]} description={event.description} start_date={event.date_start} end_date={event.date_end} />
+            </div >
+        });
         return (
             <>
                 <div className='w-[1300px] mx-auto'>

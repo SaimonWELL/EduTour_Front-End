@@ -1,44 +1,47 @@
-import { useParams } from 'react-router-dom';
-
 import { EventsImgs, Tags } from '../../data';
 
-import { getEvents } from '../../hooks/getEvents';
+import { getTours } from '../../hooks/getTours';
 // import { event }  from '../types'
 import { Card } from "../../components/cardEvent";
 
 import { getCategories } from '../../hooks/getCategories';
 import { Categories } from '../../components/categoriesBlock';
+import { getUserTours } from '../../hooks/getUserTours';
+import AuthContext from '../../context/AuthContext';
+import { useContext } from 'react';
 
 interface EventListProps {
-    events_imgs: EventsImgs
+    events_imgs: EventsImgs,
+    tags: Tags
+
 }
 
 //список событий
 
-export function Category({ events_imgs }: EventListProps) {  //{ events, events_tags, events_imgs }: EventListProps
+export function TourList({ events_imgs, tags }: EventListProps) {  //{ events, events_tags, events_imgs }: EventListProps
 
-    const props = useParams();
-    const categoryId = props.id;
-    const Events = getEvents();
+
+    const Tours = getTours();
+    const toursInfo = getUserTours();
     const categories = getCategories();
-    if (!Events || !categories) return null
+    console.log(Tours)
+    if (!Tours || !categories) return null
     else {
-        console.log(Events)
-        const listEvents = Events.map((event) => {
-            if (event.category_id.toString() == categoryId)
-                return (<div className="col" key={event.id}>
-                    <Card id={String(event.id)} name={event.name} tags={categories.map(category => { if (category.id == event.category_id) return category.name })} img={events_imgs[event.id]} description={event.description} start_date={event.date_start} end_date={event.date_end} />
-                </div>)
-        })
+        const listTours = Tours.map((tour) => {
+
+            return < div className="col" key={tour.id} >
+                <Card isTour signed={toursInfo?.includes(tour.id)} id={String(tour.id)} name={tour.name} tags={categories.map(category => { if (category.id == tour.category_id) return category.name })} img={events_imgs[tour.id]} description={tour.description} start_date={tour.date_start} end_date={tour.date_end} />
+            </div >
+        });
         return (
             <>
                 <div className='w-[1300px] mx-auto'>
-                    <h1 className='font-black font-manrope text-4xl my-5'>{`Категория «${categories.map((category) => { if (category.id.toString() == categoryId) return category.name })}»`}</h1>
+                    <h1 className='font-black font-manrope text-4xl my-5'>Список туров</h1>
                     <p className='font-rubick text-gray-600 font-light w-[70%]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     <Categories />
                 </div>
                 <div className="grid mx-auto w-fit grid-cols-1 md:grid-cols-2 lg:grid-cols-3 self-center gap-10">
-                    {listEvents}
+                    {listTours}
                 </div>
             </>
         );

@@ -7,6 +7,7 @@ import { Header } from './components/header';
 import { Route, Routes } from 'react-router-dom';
 import Registration from "./pages/registration/index";
 import { EventPage } from './pages/event_page';
+import UserTours from './pages/usertours/usertours';
 import { Login } from './components/login_popup';
 import LoginScreen from "./pages/login/Login";
 
@@ -16,6 +17,9 @@ import VerifyEmail from './pages/verifyemail';
 import { ChangeUser } from './pages/changeuser';
 import { MainPage } from './pages/mainpage';
 import { Category } from './pages/category/category';
+import UserEvents from './pages/userevents/userevents';
+import { TourList } from './pages/tour_list/tour_list';
+import { TourPage } from './pages/tour_page/tour_page';
 
 
 //Основной элемент страницы
@@ -32,8 +36,12 @@ function App() {
         <Route path='/event/:id' element={<EventPage />} />
         <Route path='/login' element={<LoginScreen />}></Route>
         <Route path='/verifyemail/:confirm_email' element={<VerifyEmail />}></Route>
-        <Route path='/changeuser/:username' element={<ChangeUser />}></Route>
+        <Route path='/:username/change' element={<ChangeUser />}></Route>
         <Route path='/category/:id' element={<Category events_imgs={events_imgs}/>}></Route>
+        <Route path='/:username/events' element={<UserEvents />}></Route>
+        <Route path='/:username/tours' element={<UserTours />}></Route>
+        <Route path='/tours' element={<TourList events_imgs={events_imgs} tags={tags} />} />
+        <Route path='/tour/:id' element={<TourPage />} />
       </Routes>
       <Login open={open} setOpen={setOpen} />
     </div>

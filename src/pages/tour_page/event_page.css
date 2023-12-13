@@ -1,0 +1,8 @@
+@import '/src/App.css';
+
+.ePagePic {
+    object-fit: cover;
+    width: 600px;
+    min-height: 400px;
+  }
+  

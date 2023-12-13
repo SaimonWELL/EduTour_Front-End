@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export const getCategories = () => {
     const [category, categoryChange] = useState<Array<category>>();
     useEffect(() => {
-        axios.get('/event/category/', {headers:{'Content-Type': 'application/json'}}).then(
+        axios.get('category/', {headers:{'Content-Type': 'application/json'}}).then(
             response => categoryChange(response.data.data.categories)
         ).catch(err => {
             if (err instanceof AxiosError)

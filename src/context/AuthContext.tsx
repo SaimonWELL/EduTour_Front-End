@@ -1,7 +1,6 @@
-import React, { Dispatch, ReactNode, createContext, useEffect, useState } from "react"
+import React, { Dispatch, createContext, useEffect, useState } from "react"
 import { profile } from '../types'
 import { profileData } from "../hooks/profileData";
-
 
 interface AuthContext {
     auth: profile | undefined;
@@ -23,23 +22,17 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        (async () => {
-            const userInfo = localStorage.getItem('userInfo');
-            if (userInfo) {
-                const profile = await profileData();
-                if (profile) setAuth(profile);
-                else{
-                    localStorage.removeItem('userInfo');
-                }
-            }
-            setLoading(false);
-        })();
+        profileData().then((profile) => {
+            setAuth(profile)
+        })
+    
+        setLoading(false);
     }, [])
 
     return !loading ? (<AuthContext.Provider value={{ auth, setAuth }}>
         {children}
-    </AuthContext.Provider>):
-    (<p>Загрузка</p>)
+    </AuthContext.Provider>) :
+        (<p>Загрузка</p>)
 }
 
 export default AuthContext;
