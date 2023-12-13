@@ -64,5 +64,6 @@ export function Card({ id, name, tags, img, description, start_date, end_date, s
             </div>
 
         </div>
-    )
-}
+      );
+  }
+

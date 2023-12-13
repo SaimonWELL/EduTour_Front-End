@@ -19,5 +19,5 @@ export const authMe = async () => {
           }
         }
       });
-    }
+  }
 };

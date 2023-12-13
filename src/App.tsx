@@ -1,10 +1,10 @@
-import './App.css';
-import { useState } from 'react';
-import { EventList } from './pages/event_list';
-import { events, events_imgs, tags } from './data';
+import "./App.css";
+import { useState } from "react";
+import { EventList } from "./pages/event_list";
+import { events_imgs } from "./data";
 
-import { Header } from './components/header';
-import { Route, Routes } from 'react-router-dom';
+import { Header } from "./components/header";
+import { Route, Routes } from "react-router-dom";
 import Registration from "./pages/registration/index";
 import { EventPage } from './pages/event_page';
 import UserTours from './pages/usertours/usertours';

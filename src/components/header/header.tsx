@@ -1,15 +1,28 @@
+<<<<<<< HEAD
 import './header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import React, { Dispatch, ReactElement, SetStateAction, useContext, useState } from 'react';
 import { useSelector } from "react-redux";
 import { AuthState } from '../../types';
 import AuthContext from '../../context/AuthContext';
+=======
+import "./header.css";
+import { Link, useNavigate } from "react-router-dom";
+import React, {
+  Dispatch,
+  ReactElement,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
+import { useSelector } from "react-redux";
+import { AuthState, profile } from "../../types";
+import AuthContext from "../../context/AuthContext";
+>>>>>>> f950e907cf43509c1ca5cf38595793027997fc49
 // import { logout } from '../../slices/authSlice';
 
-
-
 interface headerProps {
-    setOpen: Dispatch<SetStateAction<boolean>>
+  setOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 // Создание верхней панели
@@ -25,22 +38,24 @@ export function Header({ setOpen }: headerProps): ReactElement {
     // else if(typeof data == 'number') toast.error(data.toString())
     // const profile = profileData();
 
-    function logout(): void {
-        localStorage.removeItem('userInfo');
-        localStorage.removeItem('username');
-        navigate(0);
-    }
+  // else if(typeof data == 'number') toast.error(data.toString())
+  // const profile = profileData();
 
-    function switchTheme(): void {
-        if (theme.themeNow === 'Темная') {
-            document.documentElement.classList.add('dark');
-            setTheme({ themeNow: 'Светлая' });
-        }
-        else {
-            document.documentElement.classList.remove('dark');
-            setTheme({ themeNow: 'Темная' });
-        }
+  function logout(): void {
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("username");
+    navigate(0);
+  }
+
+  function switchTheme(): void {
+    if (theme.themeNow === "Темная") {
+      document.documentElement.classList.add("dark");
+      setTheme({ themeNow: "Светлая" });
+    } else {
+      document.documentElement.classList.remove("dark");
+      setTheme({ themeNow: "Темная" });
     }
+  }
 
     return (
         <>
@@ -87,27 +102,4 @@ export function Header({ setOpen }: headerProps): ReactElement {
                             </div>
         </>
     )
-
-    // return (
-    //     <header className='sm:mb-10'>
-    //         <div className='w-full sm:w-0 absolute'>
-    //             <img src="/menu-icon.svg" alt="menu" onClick={openMenu} className='w-12 dark:invert relative mx-auto mt-3' />
-    //         </div>
-    //         <nav className="sm:w-full w-0 sm:visible invisible mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global" >
-    //             <Link className="navbar-brand text-light" to="/">Home</Link>
-    //             <Link className="nav-link active" aria-current="page" to="/events">События</Link>
-    //             <div>
-    //                 <button id='themeSwitch' className={`bg-gray-700 text-white dark:bg-white dark:text-black -m-1.5 p-1.5 w-20 rounded mx-5`} onClick={switchTheme}>{theme.themeNow}</button>
-    //                 <button type='button' className='-m-1.5 p-1.5 rounded mx-5 ' onClick={() => setOpen(true)}>Войти</button>
-    //             </div>
-    //         </nav>
-    //         <div onClick={openMenu} className={menu.openNow ? "bg-blue-700 absolute w-full top-0 p-5 min-h-[150px]" : "w-0 h-0 invisible pointer-events-none"}>
-    //             <button type="button" className="text-white text-7xl min-w-full text-center leading-3 font-mono"> x </button>
-    //             <Link className="mb-2 block text-white" to="/">Home</Link>
-    //             <Link className="mb-2 block text-white" aria-current="page" to="/events">События</Link>
-    //             <button id='themeSwitch' className={`bg-gray-700 mb-2 text-white dark:bg-white dark:text-black p-1.5 w-20 rounded`} onClick={switchTheme}>{theme.themeNow}</button>
-    //             <button type='button' className='p-1.5 text-white font-semibold mb-2 block rounded' onClick={() => setOpen(true)}>Войти</button>
-    //         </div>
-    //     </header>
-    // );
 }

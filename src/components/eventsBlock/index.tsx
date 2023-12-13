@@ -1,0 +1,1 @@
+export { EventsBlock } from "./eventsBlock";

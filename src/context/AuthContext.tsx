@@ -3,23 +3,23 @@ import { profile } from '../types'
 import { profileData } from "../hooks/profileData";
 
 interface AuthContext {
-    auth: profile | undefined;
-    setAuth: Dispatch<profile | undefined>;
+  auth: profile | undefined;
+  setAuth: Dispatch<profile | undefined>;
 }
 
 const AuthContext = createContext<AuthContext>({
-    auth: undefined,
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    setAuth: () => { },
+  auth: undefined,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setAuth: () => {},
 });
 
 interface AuthProviderProps {
-    children: JSX.Element
+  children: JSX.Element;
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-    const [auth, setAuth] = useState<profile>();
-    const [loading, setLoading] = useState(true);
+  const [auth, setAuth] = useState<profile>();
+  const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         profileData().then((profile) => {
