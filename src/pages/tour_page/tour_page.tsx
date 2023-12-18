@@ -14,7 +14,7 @@ export function TourPage() {
   const id = params.id;
   if (!id) return null
   const tour = getTour(id);
-  const tagList = categories?.map(category => {if (category.id == tour?.category_id) return <Tag tag_name={category.name} key={category.id} />});
+  const tagList = categories?.map(category => {if (category.id == tour?.category_id) return <Tag category={category} />});
   return (
     <div className='mx-auto position-relative w-fit'>
       <h1 className='text-4xl font-[630] text-gray-700 dark:text-white mb-5'>{tour?.name}</h1>

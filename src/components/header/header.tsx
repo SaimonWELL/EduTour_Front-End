@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import './header.css';
-import { Link, useNavigate } from 'react-router-dom';
-import React, { Dispatch, ReactElement, SetStateAction, useContext, useState } from 'react';
-import { useSelector } from "react-redux";
-import { AuthState } from '../../types';
-import AuthContext from '../../context/AuthContext';
-=======
 import "./header.css";
 import { Link, useNavigate } from "react-router-dom";
 import React, {
@@ -18,7 +10,6 @@ import React, {
 import { useSelector } from "react-redux";
 import { AuthState, profile } from "../../types";
 import AuthContext from "../../context/AuthContext";
->>>>>>> f950e907cf43509c1ca5cf38595793027997fc49
 // import { logout } from '../../slices/authSlice';
 
 interface headerProps {

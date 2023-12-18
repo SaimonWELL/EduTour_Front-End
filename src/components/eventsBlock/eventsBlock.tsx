@@ -2,30 +2,38 @@ import React from "react";
 import { category, event } from "../../types";
 import { Card } from "../cardEvent";
 import { events_imgs } from "../../data";
+import { getUserEvents } from '../../hooks/getUserEvents';
+import { getUserTours } from "../../hooks/getUserTours";
 
 interface EventsBlockProps {
   filteredEvents: event[] | undefined;
   categories: category[] | undefined;
+  isTours?:boolean
 }
 
 export const EventsBlock = ({
   filteredEvents,
   categories,
+  isTours
 }: EventsBlockProps) => {
-  const listEvents = filteredEvents?.map((event: event) => (
+  const userData = isTours ? getUserTours() : getUserEvents()
+  if (!(categories && filteredEvents)) return null
+  const cardList = filteredEvents?.map((event: event) => (
     <div className="col" key={event.id}>
       <Card
-        event_id={String(event.id)}
-        event_name={event.name}
-        eventTags={categories?.map((category: category) => {
+        id={String(event.id)}
+        name={event.name}
+        tags={categories.map((category: category) => {
           if (category.id == event.category_id) return category.name;
         })}
         img={events_imgs[event.id]}
         description={event.description}
         start_date={event.date_start}
         end_date={event.date_end}
+        signed={userData?.includes( event.id )}
+        isTour={isTours}
       />
     </div>
   ));
-  return <>{listEvents}</>;
+  return <>{cardList}</>;
 };

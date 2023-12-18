@@ -5,14 +5,10 @@ import { event } from "../types"
 import { toast } from "react-toastify";
 
 export const getTours = () => {
-    const [events, eventChange] = useState<Array<event>>();
+    const [events, eventChange] = useState<Array<event>>([]);
     useEffect(() => {
         axios.get('tour/', {headers:{'Content-Type': 'application/json'}}).then(
             response => eventChange(response.data.data.tours)
-        ).catch(err => {
-            if (err instanceof AxiosError)
-                toast.error(err.message)
-        }
         )
     },[]);
     return events;

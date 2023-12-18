@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 interface CategoriesProps {
   filter: Set<number>;
   setFilter: Dispatch<SetStateAction<Set<number>>>;
+  isTour?: boolean
 }
 // 
-export function Categories({ filter, setFilter }: CategoriesProps) {
+export function Categories({ filter, setFilter, isTour }: CategoriesProps) {
   const navigate = useNavigate();
   const Categories = getCategories();
   if (!Categories) return null;
@@ -22,7 +23,7 @@ export function Categories({ filter, setFilter }: CategoriesProps) {
         else newFilter.add(category.id);
         console.log(newFilter);
         setFilter(newFilter);
-        navigate(`/events?${Array.from(newFilter).map(category=>`category=${category}`).join('&')}`);
+        navigate(`/${isTour ? 'tours': 'events'}?${Array.from(newFilter).map(category=>`category=${category}`).join('&')}`);
       }}
       className={filter.has(category.id) ? categoryClasses + ' bg-slate-200' : categoryClasses}
     >
@@ -37,7 +38,7 @@ export function Categories({ filter, setFilter }: CategoriesProps) {
       <button
         onClick={() => {
           setFilter(new Set<number>);
-          navigate(`/events`);
+          navigate(`/${isTour ? 'tours': 'events'}`);
         }}
         className="w-fit p-4 h-12 border-2 border-[#F6F6F6] rounded-full flex flex-row items-center justify-center gap-2"
       >
