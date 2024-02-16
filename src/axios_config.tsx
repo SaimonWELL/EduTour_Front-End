@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const base_data_url = "http://109.172.81.237:8888/api/v1/"
-const base_auth_url = "http://109.172.81.237:8000/api/v1/"
+const base_data_url = "https://softbananas.ru/api/v1"
+const base_auth_url = "https://softbananas.ru/api/v1"
 
 export default axios.create({
     baseURL: base_data_url,
